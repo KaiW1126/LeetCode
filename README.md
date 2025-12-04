@@ -1,1 +1,4 @@
 # LeetCode
+
+これはプログラミング試験用サイトLettcodeを解くフォルダです。
+言語はpython,rubyのいずれかを使用しています
