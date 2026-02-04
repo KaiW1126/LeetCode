@@ -4,5 +4,8 @@ def count_bits(n)
    (0..n).map do |i|
     # iを2進数に変換し、1の数を数える
     i.to_s(2).count('1')
+    # .to_sは２進数の文字列に変換するためのメソッド
+    # 5.to_s(2)は"101"になる
+    
    end 
 end
