@@ -21,7 +21,7 @@ class Solution:
             #Nodeで新たにメモリ確保してcloneに代入
             clone = Node(node.val)
             #元のnodeをキーとして新しくcloneを値として代入する
-            old_to_new[node] = clone
+            old_to_new[node] = clone # nodeというキーにcloneをvalueとしてる
             for neighbor in node.neighbors:
                 clone.neighbors.append(dfs(neighbor))
             return clone
