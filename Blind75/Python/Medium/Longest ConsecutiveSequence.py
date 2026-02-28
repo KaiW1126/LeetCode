@@ -5,7 +5,6 @@ class Solution:
         longest = 0
         
         for n in num_set:
-            # 「自分より1小さい数字」が存在しない場合のみ、ここが連続のスタート地点（起点）だと判定する
             if (n - 1) not in num_set: #例えば3-1で２がnum_setにあるか探してあれば、3はスタート地点ではなくなる
                 length = 1
                 
