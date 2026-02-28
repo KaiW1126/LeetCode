@@ -218,6 +218,18 @@ min(nums) / max(nums)  # 最小/最大
 min(a, b)              # 2つの値の最小
 ```
 
+### リストの繰り返し `[値] * n`
+```python
+# 同じ初期値で埋めたリストを一発で作る構文
+dp = [False] * (len(s) + 1)  # len(s)+1 個の False で初期化
+[0] * 5        # → [0, 0, 0, 0, 0]
+[True] * 3     # → [True, True, True]
+
+# ⚠️ DP配列で +1 する理由:
+#   dp[0]〜dp[len(s)] まで使うので、len(s)+1 個必要
+#   dp[0] は「空文字列」= 基底ケース（Word Break など）
+```
+
 ### 文字列操作
 ```python
 list(s)                # 文字のリストに変換
