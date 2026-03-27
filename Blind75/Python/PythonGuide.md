@@ -204,6 +204,34 @@ missing = expected_sum - actual_sum
 
 ---
 
+### 9. 優先度付きキュー (Heap / Priority Queue)
+**問題**: Kth Largest Element in a Stream
+
+```python
+import heapq
+
+# 初期化（リストから最小ヒープを作る）O(N)
+nums = [4, 5, 8, 2]
+heapq.heapify(nums)
+
+# 追加 O(log N)
+heapq.heappush(nums, 3)
+
+# 最小値の削除＆取得 O(log N)
+min_val = heapq.heappop(nums)
+
+# 最小値の参照 O(1)
+top = nums[0]
+
+# ※ Pythonには最大ヒープがないため、値にマイナスを掛けて代用する
+```
+
+**ポイント**:
+- 常に最小値が先頭に来るように要素を管理
+- 「Top K を探す」「K番目に大きいものを探す」問題で大活躍
+
+---
+
 ## 📝 Python 構文まとめ
 
 ### リスト操作
@@ -277,6 +305,25 @@ result = value1 if condition else value2
 x = x or default_value
 ```
 
+### クラス定義と `self` の使い方
+```python
+class MyClass:
+    # コンストラクタ（初期化メソッド）
+    def __init__(self, k: int):
+        self.k = k        # インスタンス変数として保存
+        self.data = []    # 別のメソッドからもアクセス可能になる
+
+    # インスタンスメソッド
+    def add(self, val: int):
+        self.data.append(val)
+        if len(self.data) > self.k:
+            self.data.pop(0)
+```
+**`self` とは？**:
+- クラス自身のインスタンス（オブジェクト自体）を指す
+- メソッドの第1引数には必ず `self` を書く決まりがある
+- `self.変数名` と書くことで、メソッド（関数）の処理が終わってもデータが消えずに保持され、クラス内の他のメソッドからいつでも呼び出せる状態（共有ポケット）になる
+
 ### Ruby → Python 主な違い
 
 | Ruby | Python | 説明 |
@@ -321,3 +368,5 @@ x = x or default_value
 3. **ポインタの管理**: Linked List は `prev`, `current`, `next_node` の3つ
 4. **数学的発想**: 公式を知っていると一発で解ける（Missing Number）
 5. **スタックはLIFO**: 括弧の対応に最適
+6. **ヒープ(heapq)**: Top K 系の問題や、常に最大・最小を追跡したい場合に O(log N) の威力を発揮する
+7. **クラスの `self`**: 関数を跨いでデータを保持するための「共有ポケット」として活躍する
